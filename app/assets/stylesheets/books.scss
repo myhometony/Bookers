@@ -11,8 +11,19 @@ h1 {
     font-weight: bold;
 }
 
-th {
-    padding-bottom: 5px;
+td {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 33px;
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+   th{ padding-bottom: 5px;
 }
 
 th {
@@ -23,9 +34,12 @@ th {
 }
 
 table {
+    display: table;
     border-collapse: separate;
+    box-sizing: border-box;
     text-indent: initial;
     border-spacing: 2px;
+    border-color: grey;
 }
 
 
@@ -39,6 +53,8 @@ h2 {
     font-weight: bold;
 }
 
+h4{margin-top:15px;
+}
 
 
 
@@ -47,6 +63,14 @@ form {
     margin-top: 0em;
 }
 
+script {
+    display: none;
+}
+
 div {
     display: block;
+}
+
+#notice {
+    color: green;
 }
