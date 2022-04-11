@@ -29,22 +29,28 @@
     <td>
     <%= link_to "Destroy", book_path(book.id), method: :delete,"data-confirm" => "Are you sure?" %>
     </td>
-<% end %>
-
-    <td>
-
-    </td>
 
     </tr>
   </tbody>
 
-</table>
+ </table>
 
-
+ <% end %>
 
 
 
 <h2>New book</h2>
+
+<% if @books.errors.any? %>
+  <%= @books.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @books.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 
 <%= form_with model: @book do |f| %>
 <h4>本のタイトル</h4>
