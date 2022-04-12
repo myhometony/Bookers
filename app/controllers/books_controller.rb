@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)#bookから@bookに変更
     if @book.save#bookから@bookに変更
-    redirect_to book_path(@book.id), notice: 'Thank you! Successfully created!'
+    redirect_to book_path(@book.id), notice: 'Thank you,successfully created!'
    #↑bookから@bookに変更
     else
       @books = Book.all#インスタンス変数追加
@@ -32,13 +32,13 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to '/books', notice: 'Successfully destroyed.'
+    redirect_to '/books', notice: 'successfully destroyed.'
   end
 
   def update
     @book = Book.find(params[:id])#title,body,errorの情報が含まれる
     if @book.update(book_params)
-    redirect_to book_path(@book.id), notice: 'Thank you! Successfully updated!'
+    redirect_to book_path(@book.id), notice: 'Thank you,successfully updated!'
     else
       render :edit
     end
