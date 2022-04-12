@@ -4,13 +4,13 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)#bookから@booknに変更
-    if @book.save#bookから@booknに変更
+    @book = Book.new(book_params)#bookから@bookに変更
+    if @book.save#bookから@bookに変更
     redirect_to book_path(@book.id), notice: 'Thank you! Successfully created!'
-   #↑bookから@booknに変更
+   #↑bookから@bookに変更
     else
       @books = Book.all#インスタンス変数追加
-      render :index #booksをindexに変更
+      render :index #booksをindexに変更#indexのviewページへ
     end
   end
 
@@ -36,18 +36,18 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:id])#title,body,errorの情報が含まれる
     if @book.update(book_params)
     redirect_to book_path(@book.id), notice: 'Thank you! Successfully updated!'
     else
-      @book = Book.find(params[:id])
       render :edit
     end
   end
 
   private
   def book_params
-    params.permit(:title, :body)
+    params.require(:book).permit(:title, :body)
   end
 end
 #.require(:book)いらない？
+#require(対象).permit(対象の名前、タイトルなど)
